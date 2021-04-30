@@ -5,7 +5,8 @@ sys.path.append(os.getcwd())
 
 from mip import Model, xsum, BINARY, INTEGER, minimize, MINIMIZE, CBC
 
-from utils import *
+
+from opti_lib.utils import *
 
 
 class ShaftPlanning:
