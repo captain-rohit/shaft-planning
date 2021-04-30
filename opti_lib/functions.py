@@ -3,7 +3,7 @@ from itertools import product
 import sys, os
 sys.path.append(os.getcwd())
 
-from mip import Model, xsum, BINARY, INTEGER, minimize
+from mip import Model, xsum, BINARY, INTEGER, minimize, MINIMIZE, CBC
 
 from utils import *
 
@@ -47,7 +47,7 @@ class ShaftPlanning:
             raise ValueError("Transportation cost must be greater than Zero")
 
     def predict(self):
-        model = Model(name="Shaft Planning",sense=MAXIMIZE, solver_name=CBC)
+        model = Model(name="Shaft Planning",sense=MINIMIZE, solver_name=CBC)
         # Decision Variables
 
         print("Building a Mixed-Integer Programming model")
@@ -91,4 +91,3 @@ class ShaftPlanning:
                     print("District {} will transport through shaft {}".format(i+1, j+1))
                     break
         return
-
